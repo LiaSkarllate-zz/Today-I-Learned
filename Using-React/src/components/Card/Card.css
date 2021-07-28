@@ -1,0 +1,25 @@
+.card {
+    flex: 1;
+    border: 3px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.card .data { 
+    flex: 1;
+    padding: 15px 0px;
+    color: #000;
+}
+
+
+.card .footer {
+    background-color: gray;
+    color: #fff;
+    padding: 5px 0px;
+}
