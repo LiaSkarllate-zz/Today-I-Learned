@@ -5,10 +5,15 @@
             <FormNewComment
                 v-on:added-comment="addComment"/>
         <hr/>
+
         <div class="list-group">
             <p v-if="comments.length <= 0">No comments</p>
 
-            <div class="list-group-item" v-for="(comment, index) in allComments" v-bind:key="index">
+            <div 
+                class       ="list-group-item" 
+                v-for       ="(comment, index) in allComments" 
+                v-bind:key  ="index">
+
                 <span class="comment_author">
                     <strong>Author:</strong> {{comment.name}}
                 </span>
