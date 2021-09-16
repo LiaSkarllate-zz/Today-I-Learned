@@ -3,7 +3,6 @@ package br.demo.rc.hexagonal.persistence;
 //Imports:
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.demo.rc.hexagonal.diplomat.out.LoadAccountPort;
