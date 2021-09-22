@@ -4,20 +4,20 @@ package com.formatta.rc.dpapi.model;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MathBody {
+public class DpBody {
     //Attributes:
     List<Double> numbers;
 
     //Construtors:
-    public MathBody(List<Double> numbers) {
+    public DpBody(List<Double> numbers) {
         this.numbers = numbers;
     }
 
-    public MathBody() {
+    public DpBody() {
         this.numbers = new LinkedList<>();
     }
 
-    public MathBody(Double number) {
+    public DpBody(Double number) {
         this.numbers = new LinkedList<>();
         this.numbers.add(number);
     }
