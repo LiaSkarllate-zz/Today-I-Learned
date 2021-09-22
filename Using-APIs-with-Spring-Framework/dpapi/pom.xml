@@ -11,9 +11,9 @@
 	</parent>
 
 	<groupId>com.formatta.rc</groupId>
-	<artifactId>mathapi</artifactId>
+	<artifactId>dpapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mathapi</name>
+	<name>dpapi</name>
 
 	<properties>
 		<java.version>11</java.version>

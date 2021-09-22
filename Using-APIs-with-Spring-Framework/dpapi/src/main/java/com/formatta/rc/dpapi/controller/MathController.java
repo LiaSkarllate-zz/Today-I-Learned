@@ -1,4 +1,7 @@
-package com.formatta.rc.mathapi.controller;
+package com.formatta.rc.dpapi.controller;
+
+import com.formatta.rc.dpapi.model.MathBody;
+import com.formatta.rc.dpapi.service.MathService;
 
 //Imports:
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.formatta.rc.mathapi.service.MathService;
-import com.formatta.rc.mathapi.model.MathBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/math")
@@ -61,28 +61,27 @@ public class MathController {
 
         return new ResponseEntity<>(new MathBody(), HttpStatus.BAD_REQUEST);
     }
-
-    /**
+    
+    /** 
      * @param d The common difference of the arithmetic progression
      * @param a1 The first term of the arithmetic progression.
      * @param n The n value. It must be greater than zero (n > 0).
-     * @param body
-     * @return ResponseEntity<MathReturn> The n-th value of the arithmetic progression.
+     * @return ResponseEntity<MathBody>
      */
     @GetMapping(value = "/pa", produces = "application/json")
-    public ResponseEntity<MathBody> getNpa(@RequestParam double d, @RequestParam double a1, @RequestParam int n) {
-        if(n > 0) {
+    public ResponseEntity<MathBody> getNpa(@RequestParam double d, @RequestParam double a1, @RequestParam int n ) {
+        if(n > 0){
             return new ResponseEntity<>(new MathBody(this.mathService.getNpa(d, a1, n)), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(new MathBody(), HttpStatus.BAD_REQUEST);
     }
-
-    /**
+    
+    /** 
      * @param r The common ratio of the geometric progression
      * @param a1 The first term of the geometric progression.
      * @param n The n value. It must be greater than zero (n > 0).
-     * @return ResponseEntity<MathReturn> The n-th value of the geometric progression
+     * @return ResponseEntity<MathBody>
      */
     @GetMapping(value = "/pg", produces = "application/json")
     public ResponseEntity<MathBody> getNpg(@RequestParam double r, @RequestParam double a1, @RequestParam int n) {
