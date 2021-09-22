@@ -9,4 +9,3 @@
                     [aleph "0.4.6"]
                     [hiccup "1.0.5"]
                     [bidi "2.1.3"]]
-    :main server.core
