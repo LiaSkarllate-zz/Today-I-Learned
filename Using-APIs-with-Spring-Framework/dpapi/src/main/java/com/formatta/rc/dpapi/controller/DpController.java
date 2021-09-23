@@ -19,16 +19,29 @@ public class DpController {
     @Autowired
     DpService dpService;
     
-    /** 
-     * @param grossSalary
-     * @param dependents
-     * @return ResponseEntity<DpBody>
-     */
     //Methods:
     @GetMapping(value = "/netsalary", produces = "application/json")
     public ResponseEntity<DpBody> getNetSalary(@RequestParam double grossSalary, @RequestParam int dependents) {
         if(grossSalary > 0 && dependents >= 0){
             return new ResponseEntity<>(new DpBody(this.dpService.getNetSalary(grossSalary, dependents)), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(new DpBody(), HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping(value = "/inssvalue", produces = "application/json")
+    public ResponseEntity<DpBody> getInssValue(@RequestParam double grossSalary) {
+        if(grossSalary > 0){
+            return new ResponseEntity<>(new DpBody(this.dpService.getInssValue(grossSalary)), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(new DpBody(), HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping(value = "/incometaxvalue", produces = "application/json")
+    public ResponseEntity<DpBody> getIncomeTaxValue(@RequestParam double grossSalary, @RequestParam int dependents) {
+        if(grossSalary > 0 && dependents >= 0){
+            return new ResponseEntity<>(new DpBody(this.dpService.getIncomeTaxValue(grossSalary, dependents)), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(new DpBody(), HttpStatus.BAD_REQUEST);
