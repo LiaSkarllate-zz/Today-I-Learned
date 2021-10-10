@@ -5,16 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.formatta.rc.diversosapi.model.Word;
-
 import org.springframework.stereotype.Service;
 
 @Service
 public class Diversos1service {
-    
-    /** 
-     * @param fullName
-     * @return ListStringsBody
-     */
     //Methods:
     public List<String> getFirstNameMidNameAndLastName(String fullName){
         //Objects:
@@ -22,27 +16,19 @@ public class Diversos1service {
         String[] names = fullName.split(" ", 0);
         List<String> body = new ArrayList<String>();
 
-        //It splits the first name;
         body.add(names[0]);
         
-        //It splits the middle name;
         for(int n = 1; n < (names.length - 1); n++){
             middleName = middleName + names[n] + " ";
         }
 
         body.add(middleName);
 
-        //It splits the last name;
         body.add((names.length > 1)? names[names.length - 1] : "");
 
         return body;
     }
 
-    
-    /** 
-     * @param fullName
-     * @return ListListCharacterBody
-     */
     public List<List<Character>> getVowelsAndConsonants(String fullName) {
         //Constants:
         String LETTERS = "aeiouAEIOU";

@@ -23,7 +23,7 @@ public class Diversos1controller {
     
     //Methods:
     @GetMapping(value = "/splitname", produces = "application/json")
-    ResponseEntity<ListStringBody> getFirstNameMidNameAndLastName(@RequestParam String fullName){
+    public ResponseEntity<ListStringBody> getFirstNameMidNameAndLastName(@RequestParam String fullName){
         if(fullName.length() > 0){
             return new ResponseEntity<>(new ListStringBody(this.diversos1Service.getFirstNameMidNameAndLastName(fullName)), HttpStatus.OK);
         }
@@ -32,7 +32,7 @@ public class Diversos1controller {
     }
 
     @GetMapping(value = "/vowelsandconsonants", produces = "application/json")
-    ResponseEntity<ListListCharacterBody> getVowelsAndConsonants(@RequestParam String fullName){
+    public ResponseEntity<ListListCharacterBody> getVowelsAndConsonants(@RequestParam String fullName){
         if(fullName.length() > 0){
             return new ResponseEntity<>(new ListListCharacterBody(this.diversos1Service.getVowelsAndConsonants(fullName)), HttpStatus.OK);
         }
@@ -41,7 +41,7 @@ public class Diversos1controller {
     }
 
     @GetMapping(value = "/eachwordanditslength", produces = "application/json")
-    ResponseEntity<ListWord> getEachWordAndItsLength(@RequestParam String text){
+    public ResponseEntity<ListWord> getEachWordAndItsLength(@RequestParam String text){
         if(text.length() > 0){
             return new ResponseEntity<>(new ListWord(this.diversos1Service.getEachWordAndItsLength(text)), HttpStatus.OK);
         }
