@@ -11,7 +11,7 @@
 #define WORST   1
 
 //Auxiliary sorting functions:
-void swap(long int array[], long int indexA, long int indexB){
+void swap(long int array[], long int indexA, long int indexB) {
     long int temp = array[indexA];
     array[indexA] = array[indexB];
     array[indexB] = temp;
@@ -39,15 +39,15 @@ void insertInSubarray(long int array[], long int rightIndex, long int value) {
     long int i;
     
     //Logic:
-    for(i = rightIndex; (i >=0) && (array[i] > value); i--){
+    for(i = rightIndex; (i >=0) && (array[i] > value); i--) {
         array[i + 1] = array[i];
     }   
     
     array[i + 1] = value;
 };
 
-void merge(long int array[], long int p, long int q, long int r){
-  	//Variables:
+void merge(long int array[], long int p, long int q, long int r) {
+	//Variables:
     long int lengthLowHalf = q - p + 1;
     long int lengthHighHalf = r - q;
   
@@ -58,12 +58,14 @@ void merge(long int array[], long int p, long int q, long int r){
   	long int* lowHalf = (long int*) malloc(lengthLowHalf * sizeof(long int));
     long int* highHalf = (long int*) malloc(lengthHighHalf * sizeof(long int));
   
-  	//Logic:
-    for(i = 0; i < lengthLowHalf; i++){
+    //Logic:
+        //Cópia da primeira metade do 'array' para 'lowHalf':
+    for(i = 0; i < lengthLowHalf; i++) {
         lowHalf[i] = array[p + i];
     }
         
-    for(j = 0; j < lengthHighHalf; j++){
+    //Cópia da segunda metade do 'array' para 'highHalf' de maneira intertida:
+    for(j = 0; j < lengthHighHalf; j++) {
       	highHalf[j] = array[q + 1 + j];
     }
   
@@ -71,7 +73,7 @@ void merge(long int array[], long int p, long int q, long int r){
     j = 0;
     k = p;
   
-  	while(i < lengthLowHalf && j < lengthHighHalf){
+  	while(i < lengthLowHalf && j < lengthHighHalf) {
   	  	if (lowHalf[i] <= highHalf[j]) {
   	  	  	array[k] = lowHalf[i];
   	  	  	i++;
@@ -82,28 +84,28 @@ void merge(long int array[], long int p, long int q, long int r){
         k++;
     }
   
-    while(i < lengthLowHalf){
+    while(i < lengthLowHalf) {
         array[k] = lowHalf[i];
         i++;
         k++;
     }
   
-    while(j < lengthHighHalf){
+    while(j < lengthHighHalf) {
         array[k] = highHalf[j];
         j++;
         k++;
     }
 }
 
-long int split(long int array[], long int p, long int r){
+long int split(long int array[], long int p, long int r) {
     //Variables:
    	long int pivot = array[r];
    	long int t, j = p;
   	long int k;
   
     //Logic:
-    for(k = p; k < r; ++k){
-        if(array[k] <= pivot){
+    for(k = p; k < r; ++k) {
+        if(array[k] <= pivot) {
             t = array[j];
             array[j] = array[k];
             array[k] = t;
@@ -119,18 +121,18 @@ long int split(long int array[], long int p, long int r){
     return j; 
 }
 
-void heapify(long int array[], long int n, long int i){
+void heapify(long int array[], long int n, long int i) {
   	//Variables:
     long int max = i;
     long int leftChild = 2 * i + 1;
     long int rightChild = 2 * i + 2;
   
   	//Logic:
-  	if(leftChild < n && array[leftChild] > array[max]){
+  	if(leftChild < n && array[leftChild] > array[max]) {
         max = leftChild;
   	}
   
-    if(rightChild < n && array[rightChild] > array[max]){
+    if(rightChild < n && array[rightChild] > array[max]) {
         max = rightChild;
     }
   
@@ -141,7 +143,7 @@ void heapify(long int array[], long int n, long int i){
 }
 
 //Sorting functions:
-void selectionSort(long int array[]){
+void selectionSort(long int array[]) {
     //Variables:
     long int minIndex;
     long int i;
@@ -153,7 +155,7 @@ void selectionSort(long int array[]){
     }
 }
 
-void insertionSort(long int array[]){
+void insertionSort(long int array[]) {
     //Variables:
     long int i;
 
@@ -163,17 +165,17 @@ void insertionSort(long int array[]){
     }
 }
 
-void mergeSort(long int array[], long int p, long int r){
+void mergeSort(long int array[], long int p, long int r) {
     if(p < r) {
-        long int m = floor((p + r)/2);
-        mergeSort(array, p, m);
-        mergeSort(array, m + 1, r);
-        merge(array, p, m, r);
+        long int q = floor((p + r)/2);
+        mergeSort(array, p, q);
+        mergeSort(array, q + 1, r);
+        merge(array, p, q, r);
     }
 }
 
-void heapSort(long int array[]){
-    for(int i = LENGTH / 2 - 1; i >= 0; i--){
+void heapSort(long int array[]) {
+    for(int i = LENGTH / 2 - 1; i >= 0; i--) {
         heapify(array, LENGTH, i); 
     }
  
@@ -183,7 +185,7 @@ void heapSort(long int array[]){
     }
 }
 
-void quickSort(long int array[], long int p, long int r){
+void quickSort(long int array[], long int p, long int r) {
     if (p < r) {                
         long int j = split(array, p, r);
         quickSort(array, p, j - 1);     
@@ -192,7 +194,7 @@ void quickSort(long int array[], long int p, long int r){
 }
 
 //Auxiliary functions:
-void printArray(long int array[]){
+void printArray(long int array[]) {
     //Variables:
     long int i;
 
@@ -203,7 +205,7 @@ void printArray(long int array[]){
     printf("\n\n");
 }
 
-void invertArray(long int array[]){
+void invertArray(long int array[]) {
     //Variables:
     long int i;
     long int arrayAux[LENGTH];
@@ -219,7 +221,7 @@ void invertArray(long int array[]){
 }
 
 //Main function:
-int main(){
+int main() {
     //Variables:
     long int i;
     long int generated;
@@ -251,7 +253,7 @@ int main(){
 
         quickSort(array0, 0, LENGTH - 1);
 
-        if(WORST){
+        if(WORST) {
             invertArray(array0);
         }
 
@@ -272,7 +274,7 @@ int main(){
             array2[i] = generated;
             array3[i] = generated;
             array4[i] = generated;
-        }
+	    }
     }
 
     //Array printing (before):
