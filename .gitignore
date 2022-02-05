@@ -1,16 +1,8 @@
-.vscode
-.classpath
-.project
-
-.mtj.tmp/
-.settings/
-target/
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+**/target/**
+**/.settings/**
+**/nbproject/**
+**/nbbuild/**
+**/node_modules/**
 
 *.class
 *.log
