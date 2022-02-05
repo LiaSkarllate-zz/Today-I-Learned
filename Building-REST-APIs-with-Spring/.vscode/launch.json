@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MathapiApplication<mathapi>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.formatta.rc.mathapi.MathapiApplication",
+            "projectName": "mathapi",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MathapiApplication<dpapi>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.formatta.rc.dpapi.MathapiApplication",
+            "projectName": "dpapi",
+            "args": ""
+        }
+    ]
+}
