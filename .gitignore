@@ -4,6 +4,7 @@
 **/nbbuild/**
 **/node_modules/**
 
+*.fuse*
 *.class
 *.log
 *.ctxt
