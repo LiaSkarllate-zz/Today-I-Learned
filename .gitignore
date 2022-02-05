@@ -1,5 +1,6 @@
 **/target/**
 **/.settings/**
+**/.vscode/**
 **/nbproject/**
 **/nbbuild/**
 **/node_modules/**
