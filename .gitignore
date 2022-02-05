@@ -1,9 +1,16 @@
 .vscode
-.mtj.tmp/
 .classpath
 .project
+
+.mtj.tmp/
 .settings/
 target/
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
 *.class
 *.log
@@ -15,5 +22,6 @@ target/
 *.zip
 *.tar.gz
 *.rar
+
 hs_err_pid*
 replay_pid*
