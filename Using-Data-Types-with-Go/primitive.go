@@ -55,12 +55,14 @@ func main() {
 
         //Slice types:
             //Slices represents all sets of an array data type.
+            //Slices can be understood as sequences, arrays whose size is defined dynamically. 
     array6 := []string{"william", "fernandes", "dorante"}
     array7 := make([]int, 2)
         array7[0] = 5
         array7[1] = 10
 
         //Map types:
+            //Maps can be understood as arrays whose index type is specified.
     map1 :=  map[string][]int {
         "men": []int{1, 2, 3, 4, 5},
         "women": []int{6, 7, 8, 9, 10},
