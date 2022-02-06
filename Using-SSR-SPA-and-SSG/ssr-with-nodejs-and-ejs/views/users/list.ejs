@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+    
+    <body>
+        <ul>
+            <% users.forEach(user => { %>
+                <li><%= user.name %> </li>
+            <% }); %>
+        </ul>
+
+        <%- include('../partials/footer') %>
+    </body>
+</html>
